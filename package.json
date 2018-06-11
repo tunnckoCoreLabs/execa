@@ -4,6 +4,9 @@
   "description": "Thin layer on top of [execa][] that allows executing multiple commands in series",
   "repository": "tunnckoCore/execa-pro",
   "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
+  "contributors": [
+    "Thiago Delgado Pinto (https://github.com/thiagodp)"
+  ],
   "nspId": "777a99d4-955c-441e-9f5d-8d7352f93d71",
   "main": "./src/index.js",
   "scripts": {
