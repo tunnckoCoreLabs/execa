@@ -26,9 +26,7 @@
     "src/"
   ],
   "dependencies": {
-    "execa": "1.0.0",
-    "p-map-series": "1.0.0",
-    "split-cmd": "^1.0.0"
+    "@tunnckocore/execa": ">= 0.1.0 < 2"
   },
   "devDependencies": {
     "eslint": "5.7.0",
