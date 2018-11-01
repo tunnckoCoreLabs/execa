@@ -2,7 +2,7 @@
   "name": "execa-pro",
   "version": "0.0.0-semantic-release",
   "description": "Thin layer on top of [execa][] that allows executing multiple commands in series",
-  "repository": "tunnckoCore/execa-pro",
+  "repository": "tunnckoCoreLabs/execa-pro",
   "author": "Charlike Mike Reagent (https://i.am.charlike.online)",
   "contributors": [
     "Thiago Delgado Pinto (https://github.com/thiagodp)"
