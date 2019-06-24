@@ -47,20 +47,6 @@ restore_modules_cache: &restore_modules_cache
 #         name: Remove node_modules to cleanup workspace
 #         command: rm -rf node_modules
 
-jobtest: &jobtest
-  steps:
-    - checkout
-    - *restore_modules_cache
-    - run:
-        name: Installing project dependencies
-        command: yarn install --prefer-offline || yarn install
-    - run:
-        name: Testing your project
-        command: yarn global add nyc && yarn start test
-    - save_cache:
-        key: repo-{{ checksum "yarn.lock" }}
-        paths: node_modules
-
 jobs:
   # install-nodeLTS:
   #   <<: *nodeLTS
@@ -68,16 +54,34 @@ jobs:
 
   test-nodeLTS:
     <<: *nodeLTS
-    <<: *jobtest
-
-  # install-nodeCurrent:
-  # <<: *nodeCurrent
-  # <<: *jobinstall
+    steps:
+      - checkout
+      - *restore_modules_cache
+      - run:
+          name: Installing project dependencies
+          command: yarn install --prefer-offline || yarn install
+      - run:
+          name: Testing your project
+          command: yarn global add nyc && yarn start test
+      - save_cache:
+          key: repo-{{ checksum "yarn.lock" }}
+          paths: node_modules
 
   test-nodeCurrent:
     <<: *nodeCurrent
-    <<: *jobtest
     steps:
+      - checkout
+      - *restore_modules_cache
+      - run:
+          name: Installing project dependencies
+          command: yarn install --prefer-offline || yarn install
+      - run:
+          name: Testing your project
+          command: yarn global add nyc && yarn start test
+      - save_cache:
+          key: repo-{{ checksum "yarn.lock" }}
+          paths: node_modules
+      # The only difference with above nodeLTS test
       - run:
           name: Sending test coverage to CodeCov
           command: bash <(curl -s https://codecov.io/bash)
