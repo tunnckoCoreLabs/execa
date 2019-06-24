@@ -22,7 +22,7 @@
     "execa": "^2.0.0-alpha.0"
   },
   "devDependencies": {
-    "@standard-release/cli": "^2.4.3",
+    "@standard-release/cli": "^2.4.4",
     "@tunnckocore/config": "^5.0.0",
     "@tunnckocore/scripts": "^1.3.0",
     "asia": "^1.0.0-rc.7"

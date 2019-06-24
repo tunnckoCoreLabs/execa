@@ -108,16 +108,16 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@standard-release/cli@^2.4.3":
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/@standard-release/cli/-/cli-2.4.3.tgz#877da988bb1b31b5a18f80b9b641098469d143b3"
-  integrity sha512-M1sn3ZMQHk27TNdenRVzDK/XpNfdqFJe5+rrmzgm6d31gIHGp/09KYFhb+OGHTHHvh0ckl5Kh6k87PGXhVkgWA==
+"@standard-release/cli@^2.4.4":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@standard-release/cli/-/cli-2.4.4.tgz#01704d29b4d2be77203a14dbbe38a897b607beca"
+  integrity sha512-gubmsJUifu3kSzqgiZOM06KuDv88llK+YM4R5YXZ1yqayQf+cZH7a7/mPBE6srSRt4yIa/iC/8pIfM+2YlkaAA==
   dependencies:
     "@tunnckocore/execa" "^4.1.0"
     dedent "^0.7.0"
     detect-next-version "^4.1.0"
     esm "^3.2.0"
-    git-commits-since "^2.0.4"
+    git-commits-since "^2.0.5"
     is-ci "^2.0.0"
     mri "^1.1.4"
 
@@ -162,11 +162,6 @@
     eslint-plugin-react-hooks "^1.6.0"
     eslint-plugin-unicorn "^9.1.0"
 
-"@tunnckocore/execa@^2.1.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@tunnckocore/execa/-/execa-2.3.2.tgz#b72f639b2806f50245665d5c01827cc4caaea11c"
-  integrity sha512-hTMSBqWH9WSbmxMuLzIbom5sbixnFNHihgFO+u77u/8CazYtG+3WR9VzwkygjGEWEgq902V6UIoX4Na0t5RbIw==
-
 "@tunnckocore/execa@^4.0.1":
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/@tunnckocore/execa/-/execa-4.0.1.tgz#f691ffc27d76111e3b6f98f959e1aabd32055eb1"
@@ -184,14 +179,14 @@
     esm "^3.0.84"
     execa "^2.0.0-alpha.0"
 
-"@tunnckocore/git-semver-tags@0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@tunnckocore/git-semver-tags/-/git-semver-tags-0.2.0.tgz#e43a9e5d4e295559d107e9d5cee6767ba1280fcf"
-  integrity sha512-2akwb2w3vzIZTdTAi/UcFTYyUqFP0M62aEtUobwCxqjsbruFUTEvPLN6wkoExcZhIxvvj2SN0jMAsOmoydVFQA==
+"@tunnckocore/git-semver-tags@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@tunnckocore/git-semver-tags/-/git-semver-tags-0.2.5.tgz#56b0a8c419c7054aabc6455cdc358fc25880ea1a"
+  integrity sha512-Cot4MO+PD0daQKMJVjuDg8rMnJV0/PejQ4Fm1ojGwYZtNqQGCtRW/zw28Zc0s0U0ukfkRmUv4UxJxdNZ+fR/dg==
   dependencies:
-    "@tunnckocore/execa" "^2.1.2"
+    "@tunnckocore/execa" "^4.1.0"
     esm "^3.0.84"
-    semver "^5.6.0"
+    semver "^6.0.0"
 
 "@tunnckocore/scripts-config@^4.0.2":
   version "4.0.2"
@@ -1319,16 +1314,16 @@ get-value@^2.0.3, get-value@^2.0.6:
   resolved "https://registry.yarnpkg.com/get-value/-/get-value-2.0.6.tgz#dc15ca1c672387ca76bd37ac0a395ba2042a2c28"
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
-git-commits-since@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/git-commits-since/-/git-commits-since-2.0.4.tgz#4670baeda7c07b258ca582b0c108ffcebd83093a"
-  integrity sha512-CcXBP4QZ7TOulmRSM8MQwkijFUT+efH2CVhm+14gRHbPLadgZSAKTasFnOtalaDHmJudhxpqNr6HwloN9o+mUQ==
+git-commits-since@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/git-commits-since/-/git-commits-since-2.0.5.tgz#70bfb0ba651245cc66b54b3ff2d6857f9636bd7b"
+  integrity sha512-3wEV5oWrjSYFTyRvmqrzQwLbBxlhWX/jh7k+AeMHJX7NloC/5/a8Tkz7FiwjHFzxkKfHUAylyk/FZCeNP0RiuA==
   dependencies:
-    "@tunnckocore/git-semver-tags" "0.2.0"
+    "@tunnckocore/git-semver-tags" "^0.2.5"
     esm "^3.2.0"
-    git-raw-commits "2.0.0"
+    git-raw-commits "^2.0.0"
 
-git-raw-commits@2.0.0:
+git-raw-commits@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/git-raw-commits/-/git-raw-commits-2.0.0.tgz#d92addf74440c14bcc5c83ecce3fb7f8a79118b5"
   integrity sha512-w4jFEJFgKXMQJ0H0ikBk2S+4KP2VEjhCvLCNqbNRQC8BgGWgLKNCO7a9K9LI+TVT7Gfoloje502sEnctibffgg==
@@ -2764,12 +2759,12 @@ safe-regex@^2.0.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-"semver@2 || 3 || 4 || 5", semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
+"semver@2 || 3 || 4 || 5", semver@^5.5.0, semver@^5.5.1:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
   integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
 
-semver@^6.1.0, semver@^6.1.1:
+semver@^6.0.0, semver@^6.1.0, semver@^6.1.1:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.1.2.tgz#079960381376a3db62eb2edc8a3bfb10c7cfe318"
   integrity sha512-z4PqiCpomGtWj8633oeAdXm1Kn1W++3T8epkZYnwiVgIYIJ0QHszhInYSJTYxebByQH7KVCEAn8R9duzZW2PhQ==
