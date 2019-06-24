@@ -108,12 +108,12 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@standard-release/cli@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@standard-release/cli/-/cli-2.4.2.tgz#01390f6b139123daad9c3ba7fcea6bf50a54eee4"
-  integrity sha512-y2UXnPXkrVS+IDLjbh1kc0HDuYmpu8a9lBBjDLJKsC4bWVJPT2kYoeJpCwR2eaYC/wbqFAE6yDO7qvZlM5pr7g==
+"@standard-release/cli@^2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@standard-release/cli/-/cli-2.4.3.tgz#877da988bb1b31b5a18f80b9b641098469d143b3"
+  integrity sha512-M1sn3ZMQHk27TNdenRVzDK/XpNfdqFJe5+rrmzgm6d31gIHGp/09KYFhb+OGHTHHvh0ckl5Kh6k87PGXhVkgWA==
   dependencies:
-    "@tunnckocore/execa" "^2.2.1"
+    "@tunnckocore/execa" "^4.1.0"
     dedent "^0.7.0"
     detect-next-version "^4.1.0"
     esm "^3.2.0"
@@ -162,7 +162,7 @@
     eslint-plugin-react-hooks "^1.6.0"
     eslint-plugin-unicorn "^9.1.0"
 
-"@tunnckocore/execa@^2.1.2", "@tunnckocore/execa@^2.2.1":
+"@tunnckocore/execa@^2.1.2":
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/@tunnckocore/execa/-/execa-2.3.2.tgz#b72f639b2806f50245665d5c01827cc4caaea11c"
   integrity sha512-hTMSBqWH9WSbmxMuLzIbom5sbixnFNHihgFO+u77u/8CazYtG+3WR9VzwkygjGEWEgq902V6UIoX4Na0t5RbIw==
@@ -175,6 +175,14 @@
     execa "^1.0.0"
     p-map-series "^2.0.0"
     split-cmd "^1.0.0"
+
+"@tunnckocore/execa@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@tunnckocore/execa/-/execa-4.1.0.tgz#5837293133ec14b98d9b7a68c08b0c346aeb5db8"
+  integrity sha512-kUklwFxJQpOed+/OK6ZyOutYxoAg72xUgloc0LXyQwAXK2yOPbDTXdMfsauUpyNdACSYedFA7cd5X6UGQfbzaA==
+  dependencies:
+    esm "^3.0.84"
+    execa "^2.0.0-alpha.0"
 
 "@tunnckocore/git-semver-tags@0.2.0":
   version "0.2.0"
