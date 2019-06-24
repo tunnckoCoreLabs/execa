@@ -77,9 +77,10 @@ jobs:
   test-nodeCurrent:
     <<: *nodeCurrent
     <<: *jobtest
-    - run:
-        name: Sending test coverage to CodeCov
-        command: bash <(curl -s https://codecov.io/bash)
+    steps:
+      - run:
+          name: Sending test coverage to CodeCov
+          command: bash <(curl -s https://codecov.io/bash)
 
   # install-node8osx:
   #   <<: *node8osx
