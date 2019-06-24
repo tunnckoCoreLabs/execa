@@ -1,40 +1,14 @@
+# Build environment
 dist
-execa
 
-# Lockfiles. We use Yarn (https://yarnpkg.com/)
+# Package managers lockfiles
 package-lock.json
-npm-shrinkwrap.json
-shrinkwrap.yaml
+shrinkwrap.json
 
-# Archives and packages #
-# ##########
-*.7z
-*.dmg
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-# node-waf configuration
-.lock-wscript
-
-# OS, Logs and databases #
-# #########################
+# Logs
 logs
 *.log
-*.log*
-*.dat
-*.sql
-*.sqlite
 *~
-~*
-.DS_Store*
-
-# dotenv environment variables file
-.env
-.pem
-*.pem
 
 # Runtime data
 pids

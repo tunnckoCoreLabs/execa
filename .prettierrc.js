@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('eslint-config-tunnckocore/prettier');
+module.exports = require('@tunnckocore/config/prettier');

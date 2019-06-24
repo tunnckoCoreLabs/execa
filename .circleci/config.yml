@@ -13,15 +13,15 @@ workdir: &workdir
 #   macos:
 #     xcode: "9"
 
-node8linux: &node8linux
-  <<: *workdir
-  docker:
-    - image: circleci/node:8
-
-node10linux: &node10linux
+nodeLTS: &nodeLTS
   <<: *workdir
   docker:
     - image: circleci/node:10
+
+nodeCurrent: &nodeCurrent
+  <<: *workdir
+  docker:
+    - image: circleci/node:12
 
 restore_modules_cache: &restore_modules_cache
   restore_cache:
@@ -55,14 +55,8 @@ jobtest: &jobtest
         name: Installing project dependencies
         command: yarn install --prefer-offline || yarn install
     - run:
-        name: Checking and linting
-        command: |-
-           yarn add --dev eslint-config-tunnckocore@next eslint prettier &&
-           yarn scripts lint &&
-           yarn remove eslint-config-tunnckocore eslint prettier
-    - run:
         name: Testing your project
-        command: yarn global add nyc && yarn scripts test
+        command: yarn start test
     - save_cache:
         key: repo-{{ checksum "yarn.lock" }}
         paths: node_modules
@@ -71,20 +65,20 @@ jobtest: &jobtest
         command: bash <(curl -s https://codecov.io/bash)
 
 jobs:
-  # install-node8linux:
-  #   <<: *node8linux
+  # install-nodeLTS:
+  #   <<: *nodeLTS
   #   <<: *jobinstall
 
-  test-node8linux:
-    <<: *node8linux
+  test-nodeLTS:
+    <<: *nodeLTS
     <<: *jobtest
 
-  # install-node10linux:
-  # <<: *node10linux
+  # install-nodeCurrent:
+  # <<: *nodeCurrent
   # <<: *jobinstall
 
-  test-node10linux:
-    <<: *node10linux
+  test-nodeCurrent:
+    <<: *nodeCurrent
     <<: *jobtest
 
   # install-node8osx:
@@ -103,36 +97,49 @@ jobs:
   #   <<: *node10osx
   #   <<: *jobtest
 
-  publish:
-    <<: *node10linux
+  build:
+    <<: *nodeCurrent
     steps:
       - checkout
       - *restore_modules_cache
       - run:
           name: Bundling your awesome project
-          command: yarn scripts build || echo "No build step."
+          command: yarn start build || echo "No build step."
+
+  publish:
+    <<: *nodeCurrent
+    steps:
+      - checkout
+      - *restore_modules_cache
       - run:
           name: Releasing and publishing
-          command: |-
-            yarn global add @tunnckocore/release-cli &&
-            yarn scripts release
+          command: yarn start release
+
+  dry-publish:
+    <<: *nodeCurrent
+    steps:
+      - checkout
+      - *restore_modules_cache
+      - run:
+          name: Releasing and publishing
+          command: yarn start release --dry
 
 workflows:
   version: 2
   automated:
     jobs:
       # Linux
-      - test-node8linux
-      - test-node10linux
+      - test-nodeLTS
+      - test-nodeCurrent
 
-      # - install-node8linux
-      # - test-node8linux:
+      # - install-nodeLTS
+      # - test-nodeLTS:
       #     requires:
-      #       - install-node8linux
-      # - install-node10linux
-      # - test-node10linux:
+      #       - install-nodeLTS
+      # - install-nodeCurrent
+      # - test-nodeCurrent:
       #     requires:
-      #       - install-node10linux
+      #       - install-nodeCurrent
       # OSX
       # - install-node8osx
       # - test-node8osx:
@@ -143,14 +150,35 @@ workflows:
       #     requires:
       #       - install-node10osx
 
-      # Release and NPM publish
-      # Executed only on master
+      - build:
+          requires:
+            # - test-node8osx
+            # - test-node10osx
+            - test-nodeLTS
+            - test-nodeCurrent
+
+      # Dry run of NPM publish, done by `@standard-release/cli`
+      # Executed on PRs only, ignores `master` branch
+      - dry-publish:
+          requires:
+            # - test-node8osx
+            # - test-node10osx
+            - test-nodeLTS
+            - test-nodeCurrent
+            - build
+          filters:
+            branches:
+              ignore: master
+          context: org-global
+
+      # Executed only on `master` branch
       - publish:
           requires:
             # - test-node8osx
             # - test-node10osx
-            - test-node8linux
-            - test-node10linux
+            - test-nodeLTS
+            - test-nodeCurrent
+            - build
           filters:
             branches:
               only: master
