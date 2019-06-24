@@ -60,9 +60,6 @@ jobtest: &jobtest
     - save_cache:
         key: repo-{{ checksum "yarn.lock" }}
         paths: node_modules
-    - run:
-        name: Sending test coverage to CodeCov
-        command: bash <(curl -s https://codecov.io/bash)
 
 jobs:
   # install-nodeLTS:
@@ -80,6 +77,9 @@ jobs:
   test-nodeCurrent:
     <<: *nodeCurrent
     <<: *jobtest
+    - run:
+        name: Sending test coverage to CodeCov
+        command: bash <(curl -s https://codecov.io/bash)
 
   # install-node8osx:
   #   <<: *node8osx
