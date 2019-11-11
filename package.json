@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "esm": "^3.0.84",
-    "execa": "^2.0.0-alpha.0"
+    "execa": "^3.0.0"
   },
   "devDependencies": {
     "@standard-release/cli": "^2.4.4",
